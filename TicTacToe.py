@@ -73,11 +73,14 @@ def preset_input(symbol, coor_row, coor_col):
 
 def main():
     use_preset = False
-    print(sys.argv)
-    print(len(sys.argv))
-    if len(sys.argv) != 1:
+    # print(sys.argv)
+    # print(len(sys.argv))
+    if len(sys.argv) == 2:
         use_preset = True
         f = open(sys.argv[1], 'r')
+    if len(sys.argv) > 2:
+        print("please only enter two arguments to the interpreter!")
+        return
 
     player1_turn = True
     player1_moves = 0
@@ -108,7 +111,7 @@ def main():
                 move_tuple = user_input("O")
             else:
                 input_list = f.readline().split(" ")
-                print(input_list)
+                # print(input_list)
                 move_tuple = preset_input("O", int(input_list[0]), int(input_list[1]))
             player1_moves += 1
             player1_turn = False
@@ -118,11 +121,12 @@ def main():
                 move_tuple = user_input("X")
             else:
                 input_list = f.readline().split(" ")
-                print(input_list)
+                # print(input_list)
                 move_tuple = preset_input("X", int(input_list[0]), int(input_list[1]))
             player2_moves += 1
             player1_turn = True
     draw_board()
-    f.close()
+    if use_preset:
+        f.close()
 
 main()
