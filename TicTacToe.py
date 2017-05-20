@@ -73,6 +73,7 @@ def main():
     # player2 will be X
     move_tuple = ()
     while True:
+        
         draw_board()
         if player1_moves >= 3 and player1_turn is False:
             if check_victory("O", int(move_tuple[0]), int(move_tuple[1])):
@@ -83,6 +84,11 @@ def main():
             if check_victory("X", int(move_tuple[0]), int(move_tuple[1])):
                 print("Player 2 wins!")
                 break
+
+        if player1_moves + player2_moves == 9:
+            print("The game is tied!")
+            break
+        
         if (player1_turn):
             print("Player 1's turn")
             move_tuple = user_input("O")
