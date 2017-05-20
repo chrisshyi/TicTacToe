@@ -73,6 +73,8 @@ def preset_input(symbol, coor_row, coor_col):
 
 def main():
     use_preset = False
+    print(sys.argv)
+    print(len(sys.argv))
     if len(sys.argv) != 1:
         use_preset = True
         f = open(sys.argv[1], 'r')
@@ -102,20 +104,22 @@ def main():
         
         if (player1_turn):
             print("Player 1's turn")
-            if use_preset:
+            if not use_preset:
                 move_tuple = user_input("O")
             else:
                 input_list = f.readline().split(" ")
-                move_tuple = preset_input("O", input_list[0], input_list[1])
+                print(input_list)
+                move_tuple = preset_input("O", int(input_list[0]), int(input_list[1]))
             player1_moves += 1
             player1_turn = False
         else:
             print("Player2's turn")
-            if use_preset:
+            if not use_preset:
                 move_tuple = user_input("X")
             else:
                 input_list = f.readline().split(" ")
-                move_tuple = preset_input("X", input_list[0], input_list[1])
+                print(input_list)
+                move_tuple = preset_input("X", int(input_list[0]), int(input_list[1]))
             player2_moves += 1
             player1_turn = True
     draw_board()
