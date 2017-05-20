@@ -21,7 +21,7 @@ def check_victory(symbol, last_move_row, last_move_col):
         return True
     if check_vertical(last_move_col, symbol):
         return True
-    if last_move_row == 1 and last_move_col == 1:
+    if (last_move_row == 1 and last_move_col == 1) or (last_move_row == 0 and last_move_col == 0) or (last_move_row == 2 and last_move_col ==2):
         if check_diagonal(symbol):
             return True
 
