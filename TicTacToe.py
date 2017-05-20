@@ -1,8 +1,5 @@
 # current_board stores the current state of the board. It's a list of lists
 current_board = [[' ', ' ', ' '], [' ', ' ', ' '], [' ', ' ', ' ']]
-# indicator for gameover
-game_over = False
-
 
 def draw_board():
     for outer_index in range(3):
